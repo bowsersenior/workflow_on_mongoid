@@ -1,0 +1,7 @@
+tmp
+nbproject
+pkg
+doc/
+html/
+*.swp
+.yardoc
