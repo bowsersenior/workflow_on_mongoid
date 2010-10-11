@@ -33,6 +33,6 @@ Gem::Specification.new do |s|
   
   
  
-  s.files        = Dir.glob("{bin,lib}/**/*") + %w(MIT_LICENSE README.md)
+  s.files        = Dir.glob("{bin,lib}/**/*") + %w(MIT_LICENSE README.rdoc)
   s.require_path = 'lib'
 end
