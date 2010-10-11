@@ -1,0 +1,44 @@
+= Overview
+
+== About workflow_on_mongoid
+
+workflow_on_mongoid lets you use the {Workflow}[http://github.com/geekq/workflow] gem with your {Mongoid}[http://mongoid.org/] documents to add state machine functionality.
+
+== How to use it
+  In your Gemfile, instead of
+      gem 'workflow'
+  
+  do
+      gem 'workflow_on_mongoid'
+  
+  That is all. Now you can use {Workflow}[http://github.com/geekq/workflow] with your {Mongoid}[http://mongoid.org/] documents. Of course, you can still continue to use  {Workflow}[http://github.com/geekq/workflow] with ActiveRecord, Remodel and plain objects. All that workflow_on_mongoid does is to add {Mongoid}[http://mongoid.org/] support. You can use all the features of {Workflow}[http://github.com/geekq/workflow] with {Mongoid}[http://mongoid.org/] models, including reflection of events & states, transition hooks, support for inherited models, etc. Just refer to the {Workflow docs}[http://github.com/geekq/workflow].
+  
+== Example
+    class MongoidImage
+      include Mongoid::Document
+
+      field :title
+      field :status
+
+      include Workflow
+
+      workflow_column :status
+
+      workflow do
+        state :unconverted do
+          event :convert, :transitions_to => :converted
+        end
+        state :converted
+      end
+    end  
+  
+  See the {tests for Mongoid}[http://github.com/bowsersenior/workflow_on_mongoid/blob/master/test/mongoid_test.rb] for more examples.
+  
+== Tests
+    I've included all the tests from the original workflow gem and added comprehensive tests for {Mongoid}[http://mongoid.org/] support. {Mongoid}[http://mongoid.org/] is now as well-tested as ActiveRecord. Including the existing tests ensures that workflow_on_mongoid implements support for {Mongoid}[http://mongoid.org/] documents without breaking anything.
+
+= Project Info
+
+workflow_on_mongoid is hosted on Github: http://github.com/bowsersenior/workflow_on_mongoid . It's a tiny project, but your contributions, forkings, comments and feedback are definitely appreciated.
+
+Copyright (c) 2010 Mani Tadayon, released under the MIT License
