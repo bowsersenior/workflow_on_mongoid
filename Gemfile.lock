@@ -2,7 +2,8 @@ PATH
   remote: .
   specs:
     workflow_on_mongoid (0.1)
-      mongoid (~> 2.0.0.beta.19)
+      bson_ext (~> 1.1)
+      mongoid (= 2.0.0.beta.19)
       workflow (~> 0.7)
 
 GEM
@@ -20,7 +21,8 @@ GEM
     activesupport (3.0.0)
     arel (1.0.1)
       activesupport (~> 3.0.0)
-    bson (1.0.4)
+    bson (1.1)
+    bson_ext (1.1)
     builder (2.1.2)
     columnize (0.3.1)
     diff-lcs (1.1.2)
@@ -28,12 +30,11 @@ GEM
     linecache (0.43)
     mocha (0.9.8)
       rake
-    mongo (1.0.7)
-      bson (>= 1.0.4)
-    mongoid (2.0.0.beta.18)
-      activemodel (~> 3.0.0)
-      bson (= 1.0.4)
-      mongo (= 1.0.7)
+    mongo (1.0.9)
+      bson (>= 1.0.5)
+    mongoid (2.0.0.beta.19)
+      activemodel (~> 3.0)
+      mongo (= 1.0.9)
       tzinfo (~> 0.3.22)
       will_paginate (~> 3.0.pre)
     rake (0.8.7)
@@ -62,8 +63,9 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  bson_ext (~> 1.1)
   mocha
-  mongoid (~> 2.0.0.beta.19)
+  mongoid (= 2.0.0.beta.19)
   rake (= 0.8.7)
   rspec (~> 2.0.0.rc)
   ruby-debug

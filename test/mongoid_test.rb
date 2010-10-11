@@ -1,3 +1,18 @@
+require 'test_helper'
+
+require 'mongoid'
+require 'workflow'
+require 'workflow_on_mongoid'
+
+# redefine this so it works with mongoid!
+def assert_state(title, expected_state, klass = Order)
+  puts 'mongoid assert_state'
+  o = klass.where(:title => title).first
+  assert_equal expected_state, o.send(klass.workflow_column)
+  o
+end
+
+
 class MongoidOrder
   include Mongoid::Document
   
@@ -66,10 +81,8 @@ class MongoidTest < MongoidTestCase
 
   def setup  
     super
-    
     MongoidOrder.create!(:title => 'some MongoidOrder', :workflow_state => 'accepted')
     MongoidLegacyOrder.create!(:title => 'some MongoidOrder', :foo_bar => 'accepted')
-
   end
 
   def assert_state(title, expected_state, klass = MongoidOrder)
@@ -224,8 +237,9 @@ class MongoidTest < MongoidTestCase
     assert !o.shipped?
   end
 
-  test 'correct exception for event, that is not allowed in current state' do
-    o = assert_state 'some MongoidOrder', 'accepted'
+  test 'correct exception for event that is not allowed in current state' do
+    o = assert_state 'some MongoidOrder', 'accepted'  
+          
     assert_raise Workflow::NoTransitionAllowed do
       o.accept!
     end

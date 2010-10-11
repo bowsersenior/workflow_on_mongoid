@@ -1,3 +1,5 @@
+require 'workflow'
+
 module Workflow
   module MongoidInstanceMethods
     def load_workflow_state
@@ -24,8 +26,8 @@ module Workflow
       klass.send :include, RemodelInstanceMethods
     elsif Object.const_defined?(:Mongoid) && klass < Mongoid::Document
       klass.class_eval do
-        field klass.workflow_column
-        include MongoidInstanceMethods
+        klass.send :field, klass.workflow_column
+        klass.send :include, MongoidInstanceMethods
         klass.before_validation :write_initial_state        
       end
     end

@@ -47,7 +47,7 @@ class MongoidTestCase < Test::Unit::TestCase
     config.master = Mongo::Connection.new('127.0.0.1', 27017).db("workflow_on_mongoid")
   end
 
-  def setup
+  def teardown
     Mongoid.master.collections.select do |collection|
       collection.name !~ /system/
     end.each(&:drop)    
