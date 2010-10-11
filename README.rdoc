@@ -13,6 +13,10 @@ workflow_on_mongoid lets you use the {Workflow}[http://github.com/geekq/workflow
   
   That is all. Now you can use {Workflow}[http://github.com/geekq/workflow] with your {Mongoid}[http://mongoid.org/] documents. Of course, you can still continue to use  {Workflow}[http://github.com/geekq/workflow] with ActiveRecord, Remodel and plain objects. All that workflow_on_mongoid does is to add {Mongoid}[http://mongoid.org/] support. You can use all the features of {Workflow}[http://github.com/geekq/workflow] with {Mongoid}[http://mongoid.org/] models, including reflection of events & states, transition hooks, support for inherited models, etc. Just refer to the {Workflow docs}[http://github.com/geekq/workflow].
   
+
+== Versioning
+  The version numbers of workflow_on_mongoid match the latest supported version of {Workflow}[http://github.com/geekq/workflow] . The current version is 0.7.0 .
+
 == Example
     class MongoidImage
       include Mongoid::Document
