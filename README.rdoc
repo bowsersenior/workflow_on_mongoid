@@ -42,7 +42,7 @@ See the {tests for Mongoid}[http://github.com/bowsersenior/workflow_on_mongoid/b
   
 == Tests
 
-I've included all the tests from the original workflow gem and added comprehensive tests for {Mongoid}[http://mongoid.org/] support. {Mongoid}[http://mongoid.org/] is now as well-tested as ActiveRecord. Including the existing tests ensures that workflow_on_mongoid implements support for {Mongoid}[http://mongoid.org/] documents without breaking anything.
+I've included all the tests from the original workflow gem and added comprehensive tests for {Mongoid}[http://mongoid.org/] support, which is now as well-tested as ActiveRecord support. Including the existing tests ensures that workflow_on_mongoid implements support for {Mongoid}[http://mongoid.org/] documents without breaking anything.
 
 = Project Info
 
