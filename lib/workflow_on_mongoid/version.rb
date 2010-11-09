@@ -1,4 +1,6 @@
 # encoding: utf-8
 module WorkflowOnMongoid #:nodoc
-  VERSION = "0.7.0" # version matches the latest supported version of the Workflow gem
+  # major version number matches the latest supported version of the Workflow gem
+  # minor version number for tracking changes to workflow_on_mongoid itself
+  VERSION = "0.7.0.1" 
 end
