@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
  
   s.required_rubygems_version = ">= 1.3.7"
  
-  s.add_dependency "workflow", '~>0.7'
+  s.add_dependency "workflow", '~>0.8'
   s.add_dependency "mongoid", '2.0.0.beta.20'
   s.add_dependency "bson_ext", '~>1.1'
 
