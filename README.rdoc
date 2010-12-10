@@ -19,7 +19,7 @@ That is all. Now you can use {Workflow}[http://github.com/geekq/workflow] with y
 
 The version numbers of workflow_on_mongoid track the latest supported version of {Workflow}[http://github.com/geekq/workflow] . The major version number (x.x.x) matches the latest supported version of the Workflow gem, while the minor version number (0.7.0.x) tracks changes to workflow_on_mongoid itself. 
 
-The current version is 0.7.0.1 .
+The current version is 0.8.0 .
 
 == Example
   class MongoidImage
