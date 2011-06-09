@@ -7,13 +7,13 @@ module Workflow
     end
 
     def persist_workflow_state(new_value)
-      self.update_attributes!(self.class.workflow_column => new_value)
-    end    
-    
+      self.update_attribute(self.class.workflow_column, new_value)
+    end
+
     private
       def write_initial_state
-        update_attributes(self.class.workflow_column => current_state.to_s) if load_workflow_state.blank?
-      end    
+        update_attribute(self.class.workflow_column, current_state.to_s) if load_workflow_state.blank?
+      end
   end
 
   def self.included(klass)
@@ -28,8 +28,8 @@ module Workflow
       klass.class_eval do
         klass.send :field, klass.workflow_column
         klass.send :include, MongoidInstanceMethods
-        klass.before_validation :write_initial_state        
+        klass.before_validation :write_initial_state
       end
     end
-  end  
+  end
 end
