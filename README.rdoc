@@ -8,20 +8,20 @@ workflow_on_mongoid lets you use the {Workflow}[http://github.com/geekq/workflow
 
 In your Gemfile, instead of
   gem 'workflow'
-  
+
 do
   gem 'workflow_on_mongoid'
-  
+
 That is all. Now you can use {Workflow}[http://github.com/geekq/workflow] with your {Mongoid}[http://mongoid.org/] documents. Of course, you can still continue to use  {Workflow}[http://github.com/geekq/workflow] with ActiveRecord, Remodel and plain objects. All that workflow_on_mongoid does is to add {Mongoid}[http://mongoid.org/] support. You can use all the features of {Workflow}[http://github.com/geekq/workflow] with {Mongoid}[http://mongoid.org/] models, including reflection of events & states, transition hooks, support for inherited models, etc. Just refer to the {Workflow docs}[http://github.com/geekq/workflow].
-  
+
 
 == Versioning
 
-The version numbers of workflow_on_mongoid track the latest supported version of {Workflow}[http://github.com/geekq/workflow] . The major version number (x.x.x) matches the latest supported version of the Workflow gem, while the minor version number (0.7.0.x) tracks changes to workflow_on_mongoid itself. 
+The version numbers of workflow_on_mongoid track the latest supported version of {Workflow}[http://github.com/geekq/workflow] . The major version number (x.x.x) matches the latest supported version of the Workflow gem, while the minor version number (0.7.0.x) tracks changes to workflow_on_mongoid itself.
 
-The current version is 0.8.0.1 . 
+The current version is 0.8.0.2 .
 
-NOTE: workflow_on_mongoid 0.8.0 uses Mongoid 2.0.0.beta.20 . 0.8.0.1 uses the latest Mongoid 2.0.0.rc . Please choose the appropriate version of workflow_on_mongoid based on the version of Mongoid you are using (the changes from Mongoid 2.0.0.beta to 2.0.0.rc are significant!)
+NOTE: workflow_on_mongoid 0.8.0 uses Mongoid 2.0.0.beta.20 . 0.8.0.1+ uses the latest Mongoid 2.0.0.rc . Please choose the appropriate version of workflow_on_mongoid based on the version of Mongoid you are using (the changes from Mongoid 2.0.0.beta to 2.0.0.rc are significant!)
 
 == Example
   class MongoidImage
@@ -40,10 +40,10 @@ NOTE: workflow_on_mongoid 0.8.0 uses Mongoid 2.0.0.beta.20 . 0.8.0.1 uses the la
       end
       state :converted
     end
-  end  
-  
+  end
+
 See the {tests for Mongoid}[http://github.com/bowsersenior/workflow_on_mongoid/blob/master/test/mongoid_test.rb] for more examples.
-  
+
 == Tests
 
 I've included all the tests from the original workflow gem and added comprehensive tests for {Mongoid}[http://mongoid.org/] support, which is now as well-tested as ActiveRecord support. Including the existing tests ensures that workflow_on_mongoid implements support for {Mongoid}[http://mongoid.org/] documents without breaking anything.
@@ -52,4 +52,10 @@ I've included all the tests from the original workflow gem and added comprehensi
 
 workflow_on_mongoid is hosted on Github: http://github.com/bowsersenior/workflow_on_mongoid . It's a tiny project, but your contributions, forkings, comments and feedback are definitely appreciated.
 
-Copyright (c) 2010 Mani Tadayon, released under the MIT License
+= Contributors
+
+Special thanks to:
+* Guilherme Cirne (https://github.com/gcirne)
+* Dariusz Gertych (https://github.com/chytreg)
+
+Copyright (c) 2011 Mani Tadayon, released under the MIT License
