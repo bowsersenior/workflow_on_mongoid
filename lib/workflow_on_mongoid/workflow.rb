@@ -12,7 +12,7 @@ module Workflow
 
     private
       def write_initial_state
-        update_attribute(self.class.workflow_column, current_state.to_s) if load_workflow_state.blank?
+        send("#{self.class.workflow_column}=", current_state.to_s) if load_workflow_state.blank?
       end
   end
 
