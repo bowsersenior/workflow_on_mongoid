@@ -15,9 +15,9 @@ end
 
 class MongoidOrder
   include Mongoid::Document
-  
+
   field :title
-  
+
   include Workflow
   workflow do
     state :submitted do
@@ -32,11 +32,11 @@ class MongoidOrder
 end
 
 class MongoidLegacyOrder
-  include Mongoid::Document  
-  
+  include Mongoid::Document
+
   field :title
   field :foo_bar
-  
+
   include Workflow
 
   workflow_column :foo_bar # use this legacy database column for persistence
@@ -55,10 +55,10 @@ end
 
 class MongoidImage
   include Mongoid::Document
-  
+
   field :title
   field :status
-  
+
   include Workflow
 
   workflow_column :status
@@ -79,7 +79,7 @@ end
 
 class MongoidTest < MongoidTestCase
 
-  def setup  
+  def setup
     super
     MongoidOrder.create!(:title => 'some MongoidOrder', :workflow_state => 'accepted')
     MongoidLegacyOrder.create!(:title => 'some MongoidOrder', :foo_bar => 'accepted')
@@ -101,6 +101,16 @@ class MongoidTest < MongoidTestCase
     o = assert_state 'some MongoidOrder', 'accepted', MongoidLegacyOrder
     assert o.ship!
     assert_state 'some MongoidOrder', 'shipped', MongoidLegacyOrder
+  end
+
+  # There was a bug where calling valid? on the record would cause it to be saved
+  # see https://github.com/bowsersenior/workflow_on_mongoid/pull/3
+  test 'does not save the record when setting initial state' do
+    new_order = MongoidOrder.new
+    assert new_order.new_record?
+
+    new_order.valid?
+    assert new_order.new_record?
   end
 
   test 'persist workflow_state in the db and reload' do
@@ -226,7 +236,7 @@ class MongoidTest < MongoidTestCase
     assert !o.shipped?
   end
 
-  test 'initial state immediately set for new objects' do  
+  test 'initial state immediately set for new objects' do
     o = MongoidOrder.create(:title => 'new object')
     assert_equal 'submitted', o.send(:workflow_state)
   end
@@ -238,8 +248,8 @@ class MongoidTest < MongoidTestCase
   end
 
   test 'correct exception for event that is not allowed in current state' do
-    o = assert_state 'some MongoidOrder', 'accepted'  
-          
+    o = assert_state 'some MongoidOrder', 'accepted'
+
     assert_raise Workflow::NoTransitionAllowed do
       o.accept!
     end
@@ -445,7 +455,7 @@ class MongoidTest < MongoidTestCase
   #       state :student
   #     end
   #   end
-  # 
+  #
   #   human = c.new
   #   assert human.can_go_to_school?
   #   assert_equal false, human.can_go_to_college?
