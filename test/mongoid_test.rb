@@ -17,6 +17,7 @@ class MongoidOrder
   include Mongoid::Document
 
   field :title
+  field :workflow_state
 
   include Workflow
   workflow do
