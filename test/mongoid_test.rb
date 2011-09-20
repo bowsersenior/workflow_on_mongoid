@@ -141,11 +141,16 @@ class MongoidTest < MongoidTestCase
   test 'default workflow column should be workflow_state' do
     o = assert_state 'some MongoidOrder', 'accepted'
     assert_equal :workflow_state, o.class.workflow_column
+    assert MongoidOrder.fields.keys.include?('workflow_state')
   end
 
   test 'custom workflow column should be foo_bar' do
     o = assert_state 'some MongoidOrder', 'accepted', MongoidLegacyOrder
     assert_equal :foo_bar, o.class.workflow_column
+  end
+
+  test 'should not have workflow_state column if custom workflow_column is specified' do
+    assert !( MongoidLegacyOrder.fields.keys.include?('workflow_state') )
   end
 
   test 'access workflow specification' do
