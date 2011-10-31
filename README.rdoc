@@ -28,7 +28,8 @@ NOTE: workflow_on_mongoid 0.8.0 uses Mongoid 2.0.0.beta.20 . 0.8.0.1+ uses the l
     field :title
     field :status
 
-    include Workflow
+    include Workflow    # Note this *must* occur after at least one 
+                        # Mongoid::* include, otherwise your status will not be persisted.
 
     workflow_column :status
 
@@ -41,6 +42,7 @@ NOTE: workflow_on_mongoid 0.8.0 uses Mongoid 2.0.0.beta.20 . 0.8.0.1+ uses the l
   end
 
 See the {tests for Mongoid}[http://github.com/bowsersenior/workflow_on_mongoid/blob/master/test/mongoid_test.rb] for more examples.
+Do ensure your <code>include Workflow</code> line occurs after at least one <code>Mongoid::Include</code> line.
 
 == Tests
 
