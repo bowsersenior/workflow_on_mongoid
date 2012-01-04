@@ -1,3 +1,5 @@
+{<img src="https://gemnasium.com/bowsersenior/workflow_on_mongoid.png" alt="Dependency Status" />}[https://gemnasium.com/bowsersenior/workflow_on_mongoid]
+
 = Overview
 
 == About workflow_on_mongoid
