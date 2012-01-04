@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "activerecord"
   s.add_development_dependency "sqlite3-ruby"
   s.add_development_dependency "mocha"
-  s.add_development_dependency "ruby-debug"
 
   s.required_rubygems_version = ">= 1.3.7"
   s.files            = `git ls-files`.split("\n")
