@@ -8,7 +8,6 @@ require 'sqlite3'
 require 'workflow'
 require 'mocha'
 require 'stringio'
-require 'ruby-debug'
 
 ActiveRecord::Migration.verbose = false
 
@@ -453,7 +452,7 @@ class MainTest < ActiveRecordTestCase
   #       state :student
   #     end
   #   end
-  # 
+  #
   #   human = c.new
   #   assert human.can_go_to_school?
   #   assert_equal false, human.can_go_to_college?
