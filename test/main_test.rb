@@ -1,4 +1,5 @@
-$LOAD_PATH.unshift File.expand_path( File.dirname(__FILE__) )
+test_dir = File.dirname(__FILE__)
+$:.unshift test_dir unless $:.include?(test_dir)
 
 require 'test_helper'
 

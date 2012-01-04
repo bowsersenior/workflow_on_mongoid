@@ -1,6 +1,9 @@
+test_dir = File.dirname(__FILE__)
+$:.unshift test_dir unless $:.include?(test_dir)
+
 require 'test_helper'
 
-unless RUBY_VERSION =~ /^1\.9/ 
+unless RUBY_VERSION =~ /^1\.9/
   class MultipleWorkflowsTest < ActiveRecordTestCase
 
     test 'multiple workflows' do
