@@ -380,6 +380,7 @@ class MainTest < ActiveRecordTestCase
   test 'diagram generation' do
     begin
       $stdout = StringIO.new('', 'w')
+      `mkdir -p 'doc'`
       Workflow::create_workflow_diagram(Order, 'doc')
       assert_match(/open.+\.pdf/, $stdout.string,
         'PDF should be generate and a hint be given to the user.')
