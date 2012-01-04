@@ -1,3 +1,5 @@
+{<img src="https://secure.travis-ci.org/bowsersenior/workflow_on_mongoid.png" alt="Build Status" />}[http://travis-ci.org/bowsersenior/workflow_on_mongoid]
+
 {<img src="https://gemnasium.com/bowsersenior/workflow_on_mongoid.png" alt="Dependency Status" />}[https://gemnasium.com/bowsersenior/workflow_on_mongoid]
 
 = Overview
@@ -30,7 +32,7 @@ NOTE: workflow_on_mongoid 0.8.0 uses Mongoid 2.0.0.beta.20 . 0.8.0.1+ uses the l
     field :title
     field :status
 
-    include Workflow    # Note this *must* occur after at least one 
+    include Workflow    # Note this *must* occur after at least one
                         # Mongoid::* include, otherwise your status will not be persisted.
 
     workflow_column :status
