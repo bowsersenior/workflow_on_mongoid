@@ -1,2 +1,3 @@
+# this file is primarily here to force git to store the tmp directory
 *.dot
 *.pdf
