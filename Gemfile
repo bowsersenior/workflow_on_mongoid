@@ -2,5 +2,11 @@ source :rubygems
 
 gemspec
 
-gem "jdbc-sqlite3", :platform => :jruby
-gem "sqlite3", :platform => :mri
+platforms :mri do
+  gem 'sqlite3'
+end
+
+platforms :jruby do
+  gem 'jruby-openssl'
+  gem 'activerecord-jdbcsqlite3-adapter'
+end

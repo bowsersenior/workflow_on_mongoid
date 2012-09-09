@@ -5,7 +5,13 @@ require 'test_helper'
 
 $VERBOSE = false
 require 'active_record/base'
-require 'sqlite3'
+
+if RUBY_PLATFORM == 'java'
+  require 'jdbc/sqlite3'
+else
+  require 'sqlite3'
+end
+
 require 'workflow'
 require 'mocha'
 require 'stringio'
