@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec", '>=2.6.0'
   s.add_development_dependency "activerecord"
-  s.add_development_dependency "sqlite3-ruby"
+  s.add_development_dependency "sqlite3"
   s.add_development_dependency "mocha"
 
   s.required_rubygems_version = ">= 1.3.7"
