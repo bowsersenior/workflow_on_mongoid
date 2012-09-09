@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.description = "Lets you use the Workflow gem with your Mongoid documents to add state machine functionality."
 
   s.add_dependency "workflow", '~>0.8'
-  s.add_dependency "mongoid", '>=2.0.0.rc.1'
+  s.add_dependency "mongoid", '>=2.0.0'
 
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec", '>=2.6.0'

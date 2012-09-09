@@ -4,6 +4,7 @@ Bundler.setup
 
 require 'test/unit'
 require 'active_record'
+
 require 'workflow_on_mongoid'
 
 class << Test::Unit::TestCase
@@ -44,14 +45,22 @@ end
 require 'mongoid'
 class MongoidTestCase < Test::Unit::TestCase
   Mongoid.configure do |config|
-    config.master = Mongo::Connection.new('127.0.0.1', 27017).db("workflow_on_mongoid")
+    if config.respond_to?(:connect_to)  # 3.x
+      config.connect_to("workflow_on_mongoid")
+    else                                # 2.x
+      config.master = Mongo::Connection.new('127.0.0.1', 27017).db("workflow_on_momgoid")
+    end
   end
 
   def teardown
-    Mongoid.master.collections.select do |collection|
-      collection.name !~ /system/
-    end.each(&:drop)    
+    if Mongoid.respond_to?(:purge!) # 3.x
+      Mongoid.purge!
+    else                            # 2.x
+      Mongoid.master.collections.select do |collection|
+        collection.name !~ /system/
+      end.each(&:drop)
+    end
   end
-  
+
   def default_test; end
 end
