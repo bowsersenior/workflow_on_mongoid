@@ -2,11 +2,7 @@ require 'bundler'
 Bundler.setup(:default, :development)
 
 require "rake"
-require "rake/rdoctask"
 require 'rake/testtask'
-
-# require "rspec"
-# require "rspec/core/rake_task"
 
 $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 require "workflow_on_mongoid/version"
