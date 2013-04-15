@@ -19,9 +19,8 @@ That is all. Now you can use {Workflow}[http://github.com/geekq/workflow] with y
 
 == Versioning
 
-The version numbers of workflow_on_mongoid track the latest supported version of {Workflow}[http://github.com/geekq/workflow] . The major version number (x.x.x) matches the latest supported version of the Workflow gem, while the minor version number (0.7.0.x) tracks changes to workflow_on_mongoid itself.
+The version numbers of workflow_on_mongoid track the latest supported version of {Workflow}[http://github.com/geekq/workflow] . The major version number (x.x.x) matches the latest supported version of the Workflow gem, while the minor version number (0.7.0.y) tracks changes to workflow_on_mongoid itself.
 
-NOTE: workflow_on_mongoid 0.8.0 uses Mongoid 2.0.0.beta.20 . 0.8.0.1+ uses the latest Mongoid 2.0.0.rc . Please choose the appropriate version of workflow_on_mongoid based on the version of Mongoid you are using (the changes from Mongoid 2.0.0.beta to 2.0.0.rc are significant!)
 
 == Example
   class MongoidImage
@@ -59,5 +58,6 @@ workflow_on_mongoid is hosted on Github: http://github.com/bowsersenior/workflow
 Special thanks to:
 * Guilherme Cirne (https://github.com/gcirne)
 * Dariusz Gertych (https://github.com/chytreg)
+* David Butler (https://github.com/dwbutler)
 
 Copyright (c) 2011 Mani Tadayon, released under the MIT License
