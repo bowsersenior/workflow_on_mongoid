@@ -13,7 +13,7 @@ else
 end
 
 require 'workflow'
-require 'mocha'
+require 'mocha/setup'
 require 'stringio'
 
 ActiveRecord::Migration.verbose = false
