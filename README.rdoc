@@ -1,3 +1,7 @@
+= workflow_on_mongoid is deprecated
+
+Please use a state machine like https://github.com/pluginaweek/state_machine which supports Mongoid. It's been great working on workflow_on_mongoid over the years, but I no longer have the time to support the gem. Since there is no plugin mechanism in the original workflow gem, keeping workflow_on_mongoid up-to-date and tested has become increasingly difficult. At the same time, I've had less and less free time to devote to open source projects. Thanks for your support!
+
 {<img src="https://secure.travis-ci.org/bowsersenior/workflow_on_mongoid.png?branch=master" alt="Build Status" />}[http://travis-ci.org/bowsersenior/workflow_on_mongoid]
 
 = Overview
